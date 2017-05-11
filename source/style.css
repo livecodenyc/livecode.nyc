@@ -53,12 +53,22 @@ body{
     background-color: #000033;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: 'Share Tech Mono', monospace;
 }
 
-p {
-    font-family: 'Source Sans Pro', sans-serif;
+p, ul, li {
+    font-family: 'Lato', sans-serif;
+    /*font-family: 'Share Tech Mono', monospace;*/
+    /*width: 50%;*/
+}
+
+ul, li {
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    line-height: 1.2em;
+    font-weight: light;
+    
 }
 
 h1 {
@@ -69,13 +79,16 @@ h3 {
     font-size: 2em;
 }
 
-.centered {
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+h4 {
+    font-size: 1.5em;
+}
 
+em {
+    font-style: italic;
+}
+
+.centered {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,13 +97,19 @@ h3 {
 }
 
 .section {
-    padding: 64px 0 0 0;
-    display: flex;
+    padding: 32px 0 0 0;
+    /*display: flex;*/
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
-.section p{
+.section.heading {
+    padding: 64px 0 0 0;
+}
+
+
+.section p {
     padding-top: 16px;
     font-size: 1.5em;
     letter-spacing: 2px;
