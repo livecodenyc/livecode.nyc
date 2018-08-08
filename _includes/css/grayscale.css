@@ -42,7 +42,8 @@ footer.text-center  p {
   height: 100%;
 }
 
-h3 {
+h3,
+h4 {
   text-align: center;
 }
 

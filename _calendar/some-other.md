@@ -1,6 +1,6 @@
 ---
 name: Some Other Show
-date: 2018-06-29
+date: 2018-06-29 9:30 PM
 image: http://via.placeholder.com/400
 ---
 
