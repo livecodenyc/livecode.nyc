@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    {% include nav.html %}
+
+    <video id="header-video" src="/videos/source-2017.mp4" autoplay loop> </video>
+
+    <section id="content" class="container content-section">
+        {% assign rowSize = 4 %}
+        {% assign columnSize = 12 | divided_by:rowSize %}
+        {% assign allMembers = site.members %}
+        {% assign memberCount = allMembers.size %}
+        {% assign memberRowCount = memberCount | divided_by: rowSize %}
+        {% assign allActs = site.acts %}
+        {% assign actCount = allActs.size %}
+        {% assign actRowCount = actCount | divided_by: rowSize %}
+
+        <h2>Acts</h2>
+        {% for i in (0..actRowCount) %}
+          {% assign rowOffset = i | times:rowSize %}
+          <!-- headers -->
+          <div class="row">
+            {% for act in allActs limit:rowSize offset:rowOffset %}
+              {% if act.link %}
+                <div class="col-xs-{{ columnSize }}">
+                  <h3><a href="{{ act.link }}">{{ act.name }}</a></h3>
+                </div>
+              {% else %}
+              <div class="col-xs-{{ columnSize }}">
+                <h3>{{ act.name }}</h3>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- images -->
+          <div class="row images">
+            {% for act in allActs limit:rowSize offset:rowOffset %}
+              {% if act.link %}
+              <div class="col-xs-{{ columnSize }}">
+                <a href="{{ act.link }}"><img src="{{ act.image }}" /></a>
+              </div>
+              {% else %}
+                <div class="col-xs-{{ columnSize }}">
+                    <img src="{{ act.image }}" />
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- content -->
+          <div class="row">
+            {% for act in allActs limit:rowSize offset:rowOffset %}
+              <div class="col-xs-{{ columnSize }}">
+                  {{ act.content | markdownify }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+
+        <h2 class="second">Members</h2>
+        {% for i in (0..memberRowCount) %}
+          {% assign rowOffset = i | times:rowSize %}
+          <!-- headers -->
+          <div class="row">
+            {% for member in allMembers limit:rowSize offset:rowOffset %}
+              {% if member.link %}
+                <div class="col-xs-{{ columnSize }}">
+                  <h3><a href="{{ member.link }}">{{ member.name }}</a></h3>
+                </div>
+              {% else %}
+              <div class="col-xs-{{ columnSize }}">
+                <h3>{{ member.name }}</h3>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- images -->
+          <div class="row images">
+            {% for member in allMembers limit:rowSize offset:rowOffset %}
+              {% if member.link %}
+              <div class="col-xs-{{ columnSize }}">
+                <a href="{{ member.link }}"><img src="{{ member.image }}" /></a>
+              </div>
+              {% else %}
+                <div class="col-xs-{{ columnSize }}">
+                    <img src="{{ member.image }}" />
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- content -->
+          <div class="row">
+            {% for member in allMembers limit:rowSize offset:rowOffset %}
+              <div class="col-xs-{{ columnSize }}">
+                  {{ member.content | markdownify }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+
+
+    </section>
+
+    {% include footer.html %}
+    {% include js.html %}
+    </body>
+</html>

@@ -1,0 +1,34 @@
+# Site settings
+title: Livecode.NYC
+email: your-email@domain.com
+url: http://livecode.nyc
+description: "The Livecoding Community of New York City"
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary-dark: '#000000'
+  links: '#219ab3'
+
+# Footer settings
+footer: livecode.nyc
+
+collections:
+  - members
+  - acts
+  - tools
+  - calendar
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: twitter
+    url: https://twitter.com/livecodenyc
+  - title: instagram
+    url: https://www.instagram.com/livecodenyc/
+  - title: github
+    url: https://github.com/livecodenyc
+  - title: vimeo
+    url: https://vimeo.com/livecodenyc
+
+# Build settings
+markdown: kramdown
+permalink: pretty

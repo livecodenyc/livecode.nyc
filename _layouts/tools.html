@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    {% include nav.html %}
+
+    <video id="header-video" src="/videos/source-2017.mp4" autoplay loop> </video>
+
+    <section id="content" class="container content-section text-center">
+        {{ content }}
+
+        {% assign rowSize = 4 %}
+        {% assign columnSize = 12 | divided_by:rowSize %}
+        {% assign allTools = site.tools %}
+        {% assign toolCount = allTools.size %}
+        {% assign rowCount = toolCount | divided_by: rowSize %}
+
+        {% for i in (0..rowCount) %}
+          {% assign rowOffset = i | times:rowSize %}
+          <!-- headers -->
+          <div class="row">
+            {% for tool in site.tools limit:rowSize offset:rowOffset %}
+              {% if tool.link %}
+                <div class="col-xs-{{ columnSize }}">
+                  <h3><a href="{{ tool.link }}">{{ tool.name }}</a></h3>
+                </div>
+              {% else %}
+              <div class="col-xs-{{ columnSize }}">
+                <h3>{{ tool.name }}</h3>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- images -->
+          <div class="row images">
+            {% for tool in site.tools limit:rowSize offset:rowOffset %}
+              {% if tool.link %}
+              <div class="col-xs-{{ columnSize }}">
+                <a href="{{ tool.link }}"><img src="{{ tool.image }}" /></a>
+              </div>
+              {% else %}
+                <div class="col-xs-{{ columnSize }}">
+                    <img src="{{ tool.image }}" />
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- content -->
+          <div class="row">
+            {% for tool in site.tools limit:rowSize offset:rowOffset %}
+              <div class="col-xs-{{ columnSize }}">
+                  {{ tool.content | markdownify }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+
+
+    </section>
+
+    {% include footer.html %}
+    {% include js.html %}
+    </body>
+</html>

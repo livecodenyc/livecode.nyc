@@ -1,0 +1,13 @@
+---
+layout: index
+---
+
+## About Livecode.NYC
+
+We are primarily a meetup group who gets together to discuss programming in real time. We meet a couple of times a month and have been running our meetups for almost two years. They are open to anyone but we don’t really publicize beyond word of mouth. Sometimes there are three of us at a meeting, sometimes there are twenty of us. There is no specific format. Our only rule is that the date for the next meetup is set at the end.
+
+We view live coding as a methodology and not medium specific. Some of our members code graphics, games, VR and a handful live code music. Many languages are used within the group, without one being prioritised. Many of us are artists.
+
+Sometimes we run events. This has ranged from workshops, to talks, to festivals, and some Algoraves. We run these events out of love for making cool things with code. We are not professional event promoters and work with what time we have to devote to organizing. We have no real budget. This can be challenging in New York where venues are not cheap and there are so many awesome events any given night.
+
+The core of what we do is share live coding, whether discussing types at our meetups or teaching a system one of us built. We hope to continue to find ways in which we can do this, as a collective.

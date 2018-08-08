@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    {% include nav.html %}
+
+    <video id="header-video" src="/videos/source-2017.mp4" autoplay loop> </video>
+
+    <section id="content" class="container content-section">
+        {% assign rowSize = 2 %}
+        {% assign columnSize = 12 | divided_by:rowSize %}
+        {% assign allShows = site.calendar | sort:"date" | reverse %}
+        {% assign showCount = allShows.size %}
+        {% assign rowCount = showCount | divided_by: rowSize %}
+        {% assign now = site.time | date:"%s" %}
+
+        <h2>Upcoming Shows</h2>
+        {% for i in (0..rowCount) %}
+          {% assign rowOffset = i | times:rowSize %}
+          <!-- headers -->
+          <div class="row">
+            {% for show in allShows limit:rowSize offset:rowOffset %}
+              {% assign showTime = show.date | date:"%s" %}
+              {% if showTime < now %} {% continue %} {% endif %}
+              {% if show.link %}
+                <div class="col-xs-{{ columnSize }}">
+                  <h3><a href="{{ show.link }}">{{ show.name }}</a></h3>
+                </div>
+              {% else %}
+              <div class="col-xs-{{ columnSize }}">
+                <h3>{{ show.name }}</h3>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- images -->
+          <div class="row images">
+            {% for show in allShows limit:rowSize offset:rowOffset %}
+              {% assign showTime = show.date | date:"%s" %}
+              {% if showTime < now %} {% continue %} {% endif %}
+              {% if show.link %}
+              <div class="col-xs-{{ columnSize }}">
+                <a href="{{ show.link }}"><img src="{{ show.image }}" /></a>
+              </div>
+              {% else %}
+                <div class="col-xs-{{ columnSize }}">
+                    <img src="{{ show.image }}" />
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- content -->
+          <div class="row">
+            {% for show in allShows limit:rowSize offset:rowOffset %}
+              {% assign showTime = show.date | date:"%s" %}
+              {% if showTime < now %} {% continue %} {% endif %}
+              <div class="col-xs-{{ columnSize }}">
+                  {{ show.content | markdownify }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+
+        <h2 class="second">Past Shows</h2>
+        {% for i in (0..rowCount) %}
+          {% assign rowOffset = i | times:rowSize %}
+          <!-- headers -->
+          <div class="row">
+            {% for show in allShows limit:rowSize offset:rowOffset %}
+              {% assign showTime = show.date | date:"%s" %}
+              {% if showTime > now %} {% continue %} {% endif %}
+              {% if show.link %}
+                <div class="col-xs-{{ columnSize }}">
+                  <h3><a href="{{ show.link }}">{{ show.name }}</a></h3>
+                </div>
+              {% else %}
+              <div class="col-xs-{{ columnSize }}">
+                <h3>{{ show.name }}</h3>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- images -->
+          <div class="row images">
+            {% for show in allShows limit:rowSize offset:rowOffset %}
+              {% assign showTime = show.date | date:"%s" %}
+              {% if showTime > now %} {% continue %} {% endif %}
+              {% if show.link %}
+              <div class="col-xs-{{ columnSize }}">
+                <a href="{{ show.link }}"><img src="{{ show.image }}" /></a>
+              </div>
+              {% else %}
+                <div class="col-xs-{{ columnSize }}">
+                    <img src="{{ show.image }}" />
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- content -->
+          <div class="row">
+            {% for show in allShows limit:rowSize offset:rowOffset %}
+              {% assign showTime = show.date | date:"%s" %}
+              {% if showTime > now %} {% continue %} {% endif %}
+              <div class="col-xs-{{ columnSize }}">
+                  {{ show.content | markdownify }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+
+
+    </section>
+
+    {% include footer.html %}
+    {% include js.html %}
+    </body>
+</html>
