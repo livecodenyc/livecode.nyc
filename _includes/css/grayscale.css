@@ -28,6 +28,11 @@ footer.text-center  p {
   /* width: 100%; */
 }
 
+.row.images {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .row.images div.col-xs-6 {
   height: 40vmin;
 }
