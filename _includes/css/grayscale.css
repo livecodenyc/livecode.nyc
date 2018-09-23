@@ -39,6 +39,7 @@ footer.text-center  p {
 
 .row.images div.col-xs-3 {
   height: 20vmin;
+  min-height: 50px;
 }
 
 .row.images img {
