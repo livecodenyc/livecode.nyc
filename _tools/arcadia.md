@@ -1,6 +1,6 @@
 ---
 name: Arcadia
-image: http://ludumdare.com/compo/wp-content/uploads/2015/04/lobster1.gif
+image: https://pbs.twimg.com/profile_images/1042864668581289985/pn8J_gMx_400x400.jpg
 link: https://arcadia-unity.github.io/
 ---
 
