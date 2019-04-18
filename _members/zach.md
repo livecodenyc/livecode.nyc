@@ -1,6 +1,6 @@
 ---
 name: Zach Krall
-image: https://en.gravatar.com/userimage/46803021/4bc6ee3ad0727e8a4bed56ea1fda9fff.jpg?size=800
+image: https://github.com/zachkrall.png
 link: https://zachkrall.online/
 ---
 
